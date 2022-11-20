@@ -153,12 +153,12 @@ namespace RedMenuClient
             {
                 if (Util.IsControlPressed(Control.SelectRadarMode))
                 {
-                    //UiPrompt promptY = new UiPrompt(new Control[1] { Control.ContextY }, "Compass");
-                    //UiPrompt promptX = new UiPrompt(new Control[1] { Control.ContextX }, "Expanded");
+                    UiPrompt promptY = new UiPrompt(new Control[1] { Control.ContextY }, "Compass");
+                    UiPrompt promptX = new UiPrompt(new Control[1] { Control.ContextX }, "Expanded");
                     UiPrompt promptA = new UiPrompt(new Control[1] { Control.ContextA }, "Regular");
                     UiPrompt promptB = new UiPrompt(new Control[1] { Control.ContextB }, "Off", "BRT2MountPrompt");
-                    //promptY.Prepare();
-                    //promptX.Prepare();
+                    promptY.Prepare();
+                    promptX.Prepare();
                     promptA.Prepare();
                     promptB.Prepare();
                     bool enabled = false;
@@ -166,8 +166,8 @@ namespace RedMenuClient
                     {
                         if (!enabled)
                         {
-                            //promptY.SetEnabled(true, true);
-                            //promptX.SetEnabled(true, true);
+                            promptY.SetEnabled(true, true);
+                            promptX.SetEnabled(true, true);
                             promptA.SetEnabled(true, true);
                             promptB.SetEnabled(true, true);
                             enabled = true;
@@ -181,19 +181,21 @@ namespace RedMenuClient
                         {
                             DisplayRadar(true);
                         }
-                        //if (Util.IsControlJustReleased(Control.ContextX))
-                        //{
-                        //    DisplayRadar(true);
-                        //}
-                        //if (Util.IsControlJustReleased(Control.ContextY))
-                        //{
-                        //    DisplayRadar(true);
-                        //}
+                        if (Util.IsControlJustReleased(Control.ContextX))
+                        {
+                            //DisplayRadar(true);
+                            Util.ShowSubtitle("Expanded radar TODO!");
+                        }
+                        if (Util.IsControlJustReleased(Control.ContextY))
+                        {
+                            //DisplayRadar(true);
+                            Util.ShowSubtitle("Compass radar TODO!");
+                        }
 
                         await Delay(0);
                     }
-                    //promptY.Dispose();
-                    //promptX.Dispose();
+                    promptY.Dispose();
+                    promptX.Dispose();
                     promptA.Dispose();
                     promptB.Dispose();
                     while (Util.IsControlPressed(Control.SelectRadarMode))
