@@ -16,12 +16,14 @@ namespace RedMenuClient.menus
     {
         private static Menu mainMenu = new Menu("RedMenu", "Welcome to RedMenu!");
         private static bool setupDone = false;
+        public static string Version { get { return GetResourceMetadata(GetCurrentResourceName(), "version", 0); } }
 
         private static void SetupMenu()
         {
             if (setupDone) return;
             setupDone = true;
-            mainMenu.MenuTitle = GetPlayerName(PlayerId());
+            //mainMenu.MenuTitle = GetPlayerName(PlayerId());
+            mainMenu.MenuTitle = "RedMenu";
 
             MenuController.AddMenu(mainMenu);
 
@@ -115,7 +117,7 @@ namespace RedMenuClient.menus
             }
 
             // Voice Menu
-            if (PermissionsManager.IsAllowed(Permission.VOMenu))
+            /*if (PermissionsManager.IsAllowed(Permission.VOMenu))
             {
                 MenuController.AddSubmenu(mainMenu, VoiceMenu.GetMenu());
                 MenuItem submenuBtn = new MenuItem("Voice Menu", "Voice related options.")
@@ -125,7 +127,7 @@ namespace RedMenuClient.menus
 
                 mainMenu.AddMenuItem(submenuBtn);
                 MenuController.BindMenuItem(mainMenu, VoiceMenu.GetMenu(), submenuBtn);
-            }
+            }*/
 
             // Misc settings
             MenuController.AddSubmenu(mainMenu, MiscSettingsMenu.GetMenu());
