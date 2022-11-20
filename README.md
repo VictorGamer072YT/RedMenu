@@ -1,5 +1,12 @@
 # This fork
 
+## Controls
+- Open Menu: L or D-Pad Left
+- No Clip: Unknown, might not even exist in this.
+
+## To-Do
+- Port a bunch of vMenu features to RedMenu.
+
 You can download the latest build of this fork here: https://ci.appveyor.com/project/kibook/redmenu
 
 Everything below is from the original README for RedMenu.

@@ -22,13 +22,19 @@ namespace RedMenuClient.menus
             if (setupDone) return;
             setupDone = true;
 
-            MenuItem item = new MenuItem("Soon.", "This menu is coming soon. Server owners can configure the information displayed here.")
+            MenuItem serverInfo = new MenuItem("Soon.", "This menu is coming soon. Server owners can configure the information displayed here.")
             {
                 Enabled = false,
                 LeftIcon = MenuItem.Icon.LOCK
             };
 
-            menu.AddMenuItem(item);
+            MenuItem version = new MenuItem("RedMenu Version", $"This server is using RedMenu ~b~~h~{MainMenu.Version}~h~~s~.")
+            {
+                Label = $"~h~{MainMenu.Version}~h~"
+            };
+
+            menu.AddMenuItem(serverInfo);
+            menu.AddMenuItem(version);
         }
 
         public static Menu GetMenu()
